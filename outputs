@@ -1,4 +1,4 @@
-I'm testing both AAPS and LoopAPP if it gives errors I'm going to with screenshot and error output here.~/esp/gnarl/project$ make monitor 
+~/esp/gnarl/project$ make monitor 
 Toolchain path: /home/whynot/.espressif/tools/xtensa-esp32-elf/esp32-2019r1-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc
 Toolchain version: esp32-2019r1
 Compiler version: 8.2.0
@@ -187,7 +187,7 @@ Traceback (most recent call last):
 SerialException: device reports readiness to read but returned no data (device disconnected or multiple access on port?)
 
 
-whynot@PowerUP:~/esp/gnarl/project$ make monitor 
+whynot@WhynotPC:~/esp/gnarl/project$ make monitor 
 Toolchain path: /home/whynot/.espressif/tools/xtensa-esp32-elf/esp32-2019r1-8.2.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc
 Toolchain version: esp32-2019r1
 Compiler version: 8.2.0
