@@ -1,0 +1,1320 @@
+whynot@WhyNot:~$ cd esp/gnarl
+whynot@WhyNot:~/esp/gnarl$ cd project/
+whynot@WhyNot:~/esp/gnarl/project$ sudo docker run -it --rm -v $PWD:/project -w /project --device /dev/ttyUSB0 espressif/idf:release-v4.1
+[sudo] password for whynot: 
+Adding ESP-IDF tools to PATH...
+Checking if Python packages are up to date...
+Python requirements from /opt/esp/idf/requirements.txt are satisfied.
+Added the following directories to PATH:
+  /opt/esp/idf/components/esptool_py/esptool
+  /opt/esp/idf/components/espcoredump
+  /opt/esp/idf/components/partition_table/
+  /opt/esp/tools/xtensa-esp32-elf/esp-2019r2-8.2.0/xtensa-esp32-elf/bin
+  /opt/esp/tools/xtensa-esp32s2-elf/esp-2019r2-8.2.0/xtensa-esp32s2-elf/bin
+  /opt/esp/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin
+  /opt/esp/tools/esp32s2ulp-elf/2.28.51-esp-20191205/esp32s2ulp-elf-binutils/bin
+  /opt/esp/tools/cmake/3.13.4/bin
+  /opt/esp/tools/openocd-esp32/v0.10.0-esp32-20191114/openocd-esp32/bin
+  /opt/esp/python_env/idf4.1_py3.6_env/bin
+  /opt/esp/idf/tools
+Done! You can now compile ESP-IDF projects.
+Go to the project directory and run:
+
+  idf.py build
+
+root@451935f9eba8:/project# idf.py monitor
+Your environment is not configured to handle unicode filenames outside of ASCII range. Environment variable LC_ALL is temporary set to C.UTF-8 for unicode support.
+Executing action: monitor
+Choosing default port b'/dev/ttyUSB0' (use '-p PORT' option to set a specific serial port)
+Running idf_monitor in directory /project
+Executing "/opt/esp/python_env/idf4.1_py3.6_env/bin/python /opt/esp/idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- /project/build/gnarl.elf -m '/opt/esp/python_env/idf4.1_py3.6_env/bin/python' '/opt/esp/idf/tools/idf.py'"...
+--- idf_monitor on /dev/ttyUSB0 115200 ---
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4
+load:0x3fff0034,len:6868
+load:0x40078000,len:13064
+load:0x40080400,len:3888
+0x40080400: _init at ??:?
+
+entry 0x40080688
+I (31) boot: ESP-IDF v4.1-dev-2148-g9f024df9e 2nd stage bootloader
+I (31) boot: compile time 08:23:42
+I (31) boot: chip revision: 1
+I (35) boot_comm: chip revision: 1, min. bootloader chip revision: 0
+I (51) boot.esp32: SPI Speed      : 40MHz
+I (51) boot.esp32: SPI Mode       : DIO
+I (51) boot.esp32: SPI Flash Size : 4MB
+I (56) boot: Enabling RNG early entropy source...
+I (61) boot: Partition Table:
+I (65) boot: ## Label            Usage          Type ST Offset   Length
+I (72) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (79) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (87) boot:  2 factory          factory app      00 00 00010000 00200000
+I (94) boot: End of partition table
+I (98) boot_comm: chip revision: 1, min. application chip revision: 0
+I (106) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x1567c ( 87676) map
+I (148) esp_image: segment 1: paddr=0x000256a4 vaddr=0x3ffbdb60 size=0x03540 ( 13632) load
+I (154) esp_image: segment 2: paddr=0x00028bec vaddr=0x40080000 size=0x00404 (  1028) load
+0x40080000: _WindowOverflow4 at /opt/esp/idf/components/freertos/xtensa_vectors.S:1778
+
+I (155) esp_image: segment 3: paddr=0x00028ff8 vaddr=0x40080404 size=0x07020 ( 28704) load
+I (176) esp_image: segment 4: paddr=0x00030020 vaddr=0x400d0020 size=0x521fc (336380) map
+0x400d0020: _stext at ??:?
+
+I (304) esp_image: segment 5: paddr=0x00082224 vaddr=0x40087424 size=0x0e8e8 ( 59624) load
+0x40087424: r_rwble_isr at ??:?
+
+I (342) boot: Loaded app from partition at offset 0x10000
+I (342) boot: Disabling RNG early entropy source...
+I (368) GNARL: subg_rfspy 2.2
+D (368) GNARL: radio version 1.2
+D (368) GNARL: frequency set to 916599975 Hz
+D (678) GNARL: display_loop: op 4 arg 0
+D (678) GNARL: starting gnarl_loop
+D (1448) GNARL: service UUID 0235733b-99c5-4197-b856-69219c2a3845
+device address: fa:fd:a5:c4:0a:24
+D (1518) GNARL: advertising started
+I (24538) GNARL: connected
+D (24538) GNARL: display_loop: op 0 arg 1
+D (24538) GNARL: connection handle 0000
+D (24538) GNARL: response count notify handle 000E
+D (24538) GNARL: timer tick notify handle 0011
+D (24788) GNARL: GAP event 4
+D (25178) GNARL: GAP event 3
+D (25458) GNARL: GAP event 4
+D (25498) GNARL: notify 1 for response count
+D (25548) GNARL: GAP event 3
+D (25548) GNARL: BLE firmware version = ble_rfspy 2.0
+data_access: received 2 bytes: 01 02
+I (25798) GNARL: CmdGetVersion
+send_bytes (14): 73 75 62 67 5F 72 66 73 70 79 20 32 2E 32
+D (25798) GNARL: rfspy_command 2, queue length 0
+D (25808) GNARL: GAP event 13
+D (25808) GNARL: notify for response count 1
+data_access: sending 15 bytes: DD 73 75 62 67 5F 72 66 73 70 79 20 32 2E 32
+data_access: received 4 bytes: 03 06 0B EE
+I (26338) GNARL: CmdUpdateRegister
+D (26338) GNARL: update_register: addr 0B value EE
+D (26338) GNARL: invalid frequency (87158 Hz)
+D (26338) GNARL: send_code DD
+D (26348) GNARL: GAP event 13
+D (26348) GNARL: notify for response count 2
+data_access: sending 1 bytes: DD
+data_access: received 4 bytes: 03 06 0A 2E
+I (26818) GNARL: CmdUpdateRegister
+D (26828) GNARL: update_register: addr 0A value 2E
+D (26828) GNARL: invalid frequency (4399658 Hz)
+D (26828) GNARL: send_code DD
+D (26838) GNARL: GAP event 13
+D (26838) GNARL: notify for response count 3
+data_access: sending 1 bytes: DD
+data_access: received 4 bytes: 03 06 09 24
+I (27358) GNARL: CmdUpdateRegister
+D (27358) GNARL: update_register: addr 09 value 24
+I (27358) GNARL: setting frequency to 868399658 Hz
+D (27368) GNARL: send_code DD
+D (27368) GNARL: GAP event 13
+D (27368) GNARL: notify for response count 4
+data_access: sending 1 bytes: DD
+data_access: received 4 bytes: 03 06 0C 59
+I (27848) GNARL: CmdUpdateRegister
+D (27848) GNARL: update_register: addr 0C value 59
+D (27848) GNARL: update_register: addr 0C ignored
+D (27848) GNARL: send_code DD
+D (27858) GNARL: GAP event 13
+D (27858) GNARL: notify for response count 5
+data_access: sending 1 bytes: DD
+data_access: received 4 bytes: 03 06 0F 62
+I (28338) GNARL: CmdUpdateRegister
+D (28338) GNARL: update_register: addr 0F value 62
+D (28338) GNARL: update_register: addr 0F ignored
+D (28338) GNARL: send_code DD
+D (28348) GNARL: GAP event 13
+D (28348) GNARL: notify for response count 6
+data_access: sending 1 bytes: DD
+data_access: received 4 bytes: 03 06 10 1A
+I (28918) GNARL: CmdUpdateRegister
+D (28918) GNARL: update_register: addr 10 value 1A
+D (28918) GNARL: update_register: addr 10 ignored
+D (28928) GNARL: send_code DD
+D (28928) GNARL: GAP event 13
+D (28928) GNARL: notify for response count 7
+data_access: sending 1 bytes: DD
+data_access: received 4 bytes: 03 06 11 13
+I (29458) GNARL: CmdUpdateRegister
+D (29458) GNARL: update_register: addr 11 value 13
+D (29458) GNARL: update_register: addr 11 ignored
+D (29458) GNARL: send_code DD
+D (29468) GNARL: GAP event 13
+D (29468) GNARL: notify for response count 8
+D (29638) GNARL: display_loop: op 1 arg -67
+D (29638) GNARL: phone RSSI = -67
+D (29638) GNARL: display_loop: op 3 arg 25
+D (29638) GNARL: command time = 25
+data_access: sending 1 bytes: DD
+data_access: received 3 bytes: 02 0B 00
+I (29988) GNARL: CmdSetSWEncoding
+D (29988) GNARL: encoding mode 00
+D (29988) GNARL: send_code DD
+D (29998) GNARL: rfspy_command 11, queue length 0
+D (29998) GNARL: GAP event 13
+D (29998) GNARL: notify for response count 9
+D (30008) GNARL: display_loop: op 1 arg -67
+D (30008) GNARL: phone RSSI = -67
+D (30008) GNARL: display_loop: op 3 arg 29
+D (30018) GNARL: command time = 29
+data_access: sending 1 bytes: DD
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (30728) GNARL: CmdSendAndListen
+D (30728) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (30728) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+RX: received 107 bytes: A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+send_bytes (109): 02 01 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+D (35008) GNARL: GAP event 13
+D (35008) GNARL: notify for response count 10
+D (35018) GNARL: display_loop: op 2 arg -72
+D (35018) GNARL: rfspy_command 5, queue length 0
+D (35018) GNARL: pump RSSI = -72
+D (35028) GNARL: display_loop: op 1 arg -63
+D (35028) GNARL: phone RSSI = -63
+D (35038) GNARL: display_loop: op 3 arg 34
+D (35038) GNARL: command time = 34
+data_access: sending 110 bytes: DD 02 01 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 02 01 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 02 01 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 02 01 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 02 01 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 02 01 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+D (61448) GNARL: timer tick 1
+D (61448) GNARL: not notifying for timer tick
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (65868) GNARL: CmdSendAndListen
+D (65868) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (65878) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (70058) GNARL: rfspy_command 5, queue length 0
+D (95048) GNARL: RX: timeout
+D (95048) GNARL: send_code AA
+D (95048) GNARL: GAP event 13
+D (95048) GNARL: notify for response count 11
+D (95048) GNARL: display_loop: op 2 arg -72
+D (95048) GNARL: pump RSSI = -72
+D (95058) GNARL: display_loop: op 1 arg -64
+D (95058) GNARL: phone RSSI = -64
+D (95058) GNARL: display_loop: op 3 arg 94
+D (95068) GNARL: command time = 94
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (96778) GNARL: CmdSendAndListen
+D (96778) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (96788) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (100958) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+send_bytes (109): 0A 02 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+D (101128) GNARL: GAP event 13
+D (101128) GNARL: notify for response count 12
+D (101128) GNARL: display_loop: op 2 arg -68
+D (101138) GNARL: pump RSSI = -68
+D (101138) GNARL: display_loop: op 1 arg -74
+D (101148) GNARL: phone RSSI = -74
+D (101148) GNARL: display_loop: op 3 arg 100
+D (101148) GNARL: command time = 100
+data_access: sending 110 bytes: DD 0A 02 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 0A 02 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 0A 02 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 0A 02 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 0A 02 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 0A 02 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 07 D0 00 00 00 A9 66 59 99 69 B1 65 A5 55 8E 55 00
+I (103018) GNARL: CmdSendAndListen
+D (103018) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (103028) GNARL: send_and_listen: listen_channel 0 timeout_ms 2000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 65 A5 55 8E 55
+D (103058) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+send_bytes (109): 0A 03 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+D (103228) GNARL: GAP event 13
+D (103228) GNARL: notify for response count 13
+D (103238) GNARL: display_loop: op 2 arg -68
+D (103238) GNARL: pump RSSI = -68
+D (103238) GNARL: display_loop: op 1 arg -81
+D (103248) GNARL: phone RSSI = -81
+D (103248) GNARL: display_loop: op 3 arg 102
+D (103258) GNARL: command time = 102
+data_access: sending 110 bytes: DD 0A 03 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 03 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 03 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 03 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 03 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 03 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 55 9A 35 00
+I (104478) GNARL: CmdSendAndListen
+D (104478) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (104488) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 D2 C5 55 9A 35
+D (104518) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+send_bytes (13): F0 04 A9 66 59 99 69 B1 56 65 55 CA 55
+D (104578) GNARL: GAP event 13
+D (104578) GNARL: notify for response count 14
+D (104588) GNARL: display_loop: op 2 arg -81
+D (104588) GNARL: pump RSSI = -81
+D (104588) GNARL: display_loop: op 1 arg -71
+D (104598) GNARL: phone RSSI = -71
+D (104598) GNARL: display_loop: op 3 arg 104
+D (104608) GNARL: command time = 104
+data_access: sending 14 bytes: DD F0 04 A9 66 59 99 69 B1 56 65 55 CA 55
+data_access: received 122 bytes: 79 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35 00
+I (105968) GNARL: CmdSendAndListen
+D (105968) GNARL: send_and_listen: len 120 send_channel 0 repeat_count 0 delay_ms 0
+D (105978) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 107 bytes: A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35
+D (106108) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 C6 55 6C 8E C5
+send_bytes (13): F6 05 A9 66 59 99 69 B1 C6 55 6C 8E C5
+D (106128) GNARL: GAP event 13
+D (106128) GNARL: notify for response count 15
+D (106128) GNARL: display_loop: op 2 arg -78
+D (106138) GNARL: pump RSSI = -78
+D (106138) GNARL: display_loop: op 1 arg -76
+D (106148) GNARL: phone RSSI = -76
+D (106148) GNARL: display_loop: op 3 arg 105
+D (106148) GNARL: command time = 105
+data_access: sending 14 bytes: DD F6 05 A9 66 59 99 69 B1 C6 55 6C 8E C5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 55 9A 35 00
+I (106918) GNARL: CmdSendAndListen
+D (106918) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (106928) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 D2 C5 55 9A 35
+D (106958) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+send_bytes (13): F8 06 A9 66 59 99 69 B1 56 65 55 CA 55
+D (107018) GNARL: GAP event 13
+D (107018) GNARL: notify for response count 16
+D (107018) GNARL: display_loop: op 2 arg -77
+D (107028) GNARL: pump RSSI = -77
+D (107028) GNARL: display_loop: op 1 arg -81
+D (107038) GNARL: phone RSSI = -81
+D (107038) GNARL: display_loop: op 3 arg 106
+D (107038) GNARL: command time = 106
+data_access: sending 14 bytes: DD F8 06 A9 66 59 99 69 B1 56 65 55 CA 55
+data_access: received 122 bytes: 79 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35 00
+I (108358) GNARL: CmdSendAndListen
+D (108358) GNARL: send_and_listen: len 120 send_channel 0 repeat_count 0 delay_ms 0
+D (108368) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 107 bytes: A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35
+D (108498) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 C6 55 6C 8E C5
+send_bytes (13): 01 07 A9 66 59 99 69 B1 C6 55 6C 8E C5
+D (108538) GNARL: GAP event 13
+D (108538) GNARL: notify for response count 17
+D (108548) GNARL: display_loop: op 2 arg -73
+D (108548) GNARL: pump RSSI = -73
+D (108558) GNARL: display_loop: op 1 arg -82
+D (108558) GNARL: phone RSSI = -82
+D (108558) GNARL: display_loop: op 3 arg 108
+D (108568) GNARL: command time = 108
+data_access: sending 14 bytes: DD 01 07 A9 66 59 99 69 B1 C6 55 6C 8E C5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 55 9A 35 00
+I (109308) GNARL: CmdSendAndListen
+D (109308) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (109308) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 D2 C5 55 9A 35
+D (109348) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+send_bytes (13): F4 08 A9 66 59 99 69 B1 56 65 55 CA 55
+D (109408) GNARL: GAP event 13
+D (109408) GNARL: notify for response count 18
+D (109408) GNARL: display_loop: op 2 arg -79
+D (109418) GNARL: pump RSSI = -79
+D (109418) GNARL: display_loop: op 1 arg -77
+D (109418) GNARL: phone RSSI = -77
+D (109428) GNARL: display_loop: op 3 arg 109
+D (109428) GNARL: command time = 109
+data_access: sending 14 bytes: DD F4 08 A9 66 59 99 69 B1 56 65 55 CA 55
+data_access: received 122 bytes: 79 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35 00
+I (110938) GNARL: CmdSendAndListen
+D (110938) GNARL: send_and_listen: len 120 send_channel 0 repeat_count 0 delay_ms 0
+D (110948) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 107 bytes: A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35
+D (111078) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 C6 55 6C 8E C5
+send_bytes (13): C4 09 A9 66 59 99 69 B1 C6 55 6C 8E C5
+D (111128) GNARL: GAP event 13
+D (111128) GNARL: notify for response count 19
+D (111128) GNARL: display_loop: op 2 arg -103
+D (111138) GNARL: pump RSSI = -103
+D (111138) GNARL: display_loop: op 1 arg -72
+D (111148) GNARL: phone RSSI = -72
+D (111148) GNARL: display_loop: op 3 arg 110
+D (111148) GNARL: command time = 110
+data_access: sending 14 bytes: DD C4 09 A9 66 59 99 69 B1 C6 55 6C 8E C5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 55 9A 35 00
+I (111838) GNARL: CmdSendAndListen
+D (111838) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (111848) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 D2 C5 55 9A 35
+D (111888) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+send_bytes (13): 06 0A A9 66 59 99 69 B1 56 65 55 CA 55
+D (111938) GNARL: GAP event 13
+D (111938) GNARL: notify for response count 20
+D (111948) GNARL: display_loop: op 2 arg -70
+D (111948) GNARL: pump RSSI = -70
+D (111948) GNARL: display_loop: op 1 arg -72
+D (111958) GNARL: phone RSSI = -72
+D (111958) GNARL: display_loop: op 3 arg 111
+D (111968) GNARL: command time = 111
+data_access: sending 14 bytes: DD 06 0A A9 66 59 99 69 B1 56 65 55 CA 55
+data_access: received 122 bytes: 79 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35 00
+I (113178) GNARL: CmdSendAndListen
+D (113178) GNARL: send_and_listen: len 120 send_channel 0 repeat_count 0 delay_ms 0
+D (113188) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 107 bytes: A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35
+D (113328) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 C6 55 6C 8E C5
+send_bytes (13): 0C 0B A9 66 59 99 69 B1 C6 55 6C 8E C5
+D (113338) GNARL: GAP event 13
+D (113338) GNARL: notify for response count 21
+D (113348) GNARL: display_loop: op 2 arg -67
+D (113348) GNARL: pump RSSI = -67
+D (113348) GNARL: display_loop: op 1 arg -77
+D (113358) GNARL: phone RSSI = -77
+D (113358) GNARL: display_loop: op 3 arg 112
+D (113368) GNARL: command time = 112
+data_access: sending 14 bytes: DD 0C 0B A9 66 59 99 69 B1 C6 55 6C 8E C5
+D (121448) GNARL: timer tick 2
+D (121448) GNARL: not notifying for timer tick
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (167558) GNARL: CmdSendAndListen
+D (167558) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (167568) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (171748) GNARL: rfspy_command 5, queue length 0
+D (181448) GNARL: timer tick 3
+D (181448) GNARL: not notifying for timer tick
+D (196738) GNARL: RX: timeout
+D (196738) GNARL: send_code AA
+D (196738) GNARL: GAP event 13
+D (196738) GNARL: notify for response count 22
+D (196738) GNARL: display_loop: op 2 arg -67
+D (196738) GNARL: pump RSSI = -67
+D (196748) GNARL: display_loop: op 1 arg -72
+D (196748) GNARL: phone RSSI = -72
+D (196748) GNARL: display_loop: op 3 arg 196
+D (196758) GNARL: command time = 196
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (198518) GNARL: CmdSendAndListen
+D (198518) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (198518) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (202698) GNARL: rfspy_command 5, queue length 0
+D (227698) GNARL: RX: timeout
+D (227698) GNARL: send_code AA
+D (227698) GNARL: GAP event 13
+D (227698) GNARL: notify for response count 23
+D (227698) GNARL: display_loop: op 2 arg -67
+D (227698) GNARL: pump RSSI = -67
+D (227708) GNARL: display_loop: op 1 arg -76
+D (227708) GNARL: phone RSSI = -76
+D (227708) GNARL: display_loop: op 3 arg 227
+D (227718) GNARL: command time = 227
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (229428) GNARL: CmdSendAndListen
+D (229428) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (229428) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (233608) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+send_bytes (109): 06 0C A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+D (233728) GNARL: GAP event 13
+D (233728) GNARL: notify for response count 24
+D (233738) GNARL: display_loop: op 2 arg -70
+D (233738) GNARL: pump RSSI = -70
+D (233748) GNARL: display_loop: op 1 arg -78
+D (233748) GNARL: phone RSSI = -78
+D (233748) GNARL: display_loop: op 3 arg 233
+D (233758) GNARL: command time = 233
+data_access: sending 110 bytes: DD 06 0C A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 06 0C A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 06 0C A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 06 0C A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 06 0C A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD 06 0C A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+D (241448) GNARL: timer tick 4
+D (241448) GNARL: not notifying for timer tick
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D3 25 55 A9 65 00
+I (245168) GNARL: CmdSendAndListen
+D (245168) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (245178) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 D3 25 55 A9 65
+D (245208) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+send_bytes (13): 04 0D A9 66 59 99 69 B1 56 65 55 CA 55
+D (245268) GNARL: GAP event 13
+D (245268) GNARL: notify for response count 25
+D (245268) GNARL: display_loop: op 2 arg -71
+D (245278) GNARL: pump RSSI = -71
+D (245278) GNARL: display_loop: op 1 arg -67
+D (245288) GNARL: phone RSSI = -67
+D (245288) GNARL: display_loop: op 3 arg 244
+D (245288) GNARL: command time = 244
+data_access: sending 14 bytes: DD 04 0D A9 66 59 99 69 B1 56 65 55 CA 55
+data_access: received 122 bytes: 79 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D3 25 72 57 16 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 35 00
+I (246508) GNARL: CmdSendAndListen
+D (246508) GNARL: send_and_listen: len 120 send_channel 0 repeat_count 0 delay_ms 0
+D (246518) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 107 bytes: A9 66 59 99 69 B1 D3 25 72 57 16 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 35
+D (246658) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+send_bytes (13): CE 0E A9 66 59 99 69 B1 56 65 55 CA 55
+D (246708) GNARL: GAP event 13
+D (246708) GNARL: notify for response count 26
+D (246708) GNARL: display_loop: op 2 arg -98
+D (246718) GNARL: pump RSSI = -98
+D (246718) GNARL: display_loop: op 1 arg -74
+D (246728) GNARL: phone RSSI = -74
+D (246728) GNARL: display_loop: op 3 arg 246
+D (246728) GNARL: command time = 246
+data_access: sending 14 bytes: DD CE 0E A9 66 59 99 69 B1 56 65 55 CA 55
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (247608) GNARL: CmdSendAndListen
+D (247608) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (247608) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (251788) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+send_bytes (109): DA 0F A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+D (251908) GNARL: GAP event 13
+D (251918) GNARL: notify for response count 27
+D (251918) GNARL: display_loop: op 2 arg -92
+D (251918) GNARL: pump RSSI = -92
+D (251928) GNARL: display_loop: op 1 arg -75
+D (251928) GNARL: phone RSSI = -75
+D (251938) GNARL: display_loop: op 3 arg 251
+D (251938) GNARL: command time = 251
+data_access: sending 110 bytes: DD DA 0F A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD DA 0F A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD DA 0F A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD DA 0F A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD DA 0F A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD DA 0F A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 69 55 55 58 E5 00
+I (253258) GNARL: CmdSendAndListen
+D (253258) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (253268) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 69 55 55 58 E5
+D (253308) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+send_bytes (13): E0 10 A9 66 59 99 69 B1 56 65 55 CA 55
+D (253358) GNARL: GAP event 13
+D (253358) GNARL: notify for response count 28
+D (253368) GNARL: display_loop: op 2 arg -89
+D (253368) GNARL: pump RSSI = -89
+D (253368) GNARL: display_loop: op 1 arg -71
+D (253378) GNARL: phone RSSI = -71
+D (253378) GNARL: display_loop: op 3 arg 253
+D (253388) GNARL: command time = 253
+data_access: sending 14 bytes: DD E0 10 A9 66 59 99 69 B1 56 65 55 CA 55
+data_access: received 122 bytes: 79 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 69 55 71 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 CA 55 00
+I (254648) GNARL: CmdSendAndListen
+D (254648) GNARL: send_and_listen: len 120 send_channel 0 repeat_count 0 delay_ms 0
+D (254658) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 107 bytes: A9 66 59 99 69 B1 69 55 71 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 CA 55
+D (254798) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 71 58 B5 66 55 5B 15 56 6C 4B C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 4B C7 45 4E 8F 45 55 58 B5 5A 55 5B 15 55 AC 4B C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 4B C7 4C 72 C9 A5 55 58 B5 6A 55 5B 15 56 AC 4B C7 4C 74 C9 A5 55 58 B5 4B 55 5B 15 54 BC 4B C7 4C 66 CB 45 55 58 B5 6C 55 5B 15 72 65
+send_bytes (109): F6 11 A9 66 59 99 69 B1 69 55 71 58 B5 66 55 5B 15 56 6C 4B C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 4B C7 45 4E 8F 45 55 58 B5 5A 55 5B 15 55 AC 4B C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 4B C7 4C 72 C9 A5 55 58 B5 6A 55 5B 15 56 AC 4B C7 4C 74 C9 A5 55 58 B5 4B 55 5B 15 54 BC 4B C7 4C 66 CB 45 55 58 B5 6C 55 5B 15 72 65
+D (254958) GNARL: GAP event 13
+D (254958) GNARL: notify for response count 29
+D (254958) GNARL: display_loop: op 2 arg -78
+D (254968) GNARL: pump RSSI = -78
+D (254968) GNARL: display_loop: op 1 arg -68
+D (254968) GNARL: phone RSSI = -68
+D (254978) GNARL: display_loop: op 3 arg 254
+D (254978) GNARL: command time = 254
+data_access: sending 110 bytes: DD F6 11 A9 66 59 99 69 B1 69 55 71 58 B5 66 55 5B 15 56 6C 4B C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 4B C7 45 4E 8F 45 55 58 B5 5A 55 5B 15 55 AC 4B C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 4B C7 4C 72 C9 A5 55 58 B5 6A 55 5B 15 56 AC 4B C7 4C 74 C9 A5 55 58 B5 4B 55 5B 15 54 BC 4B C7 4C 66 CB 45 55 58 B5 6C 55 5B 15 72 65
+data_access: sending 110 bytes: DD F6 11 A9 66 59 99 69 B1 69 55 71 58 B5 66 55 5B 15 56 6C 4B C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 4B C7 45 4E 8F 45 55 58 B5 5A 55 5B 15 55 AC 4B C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 4B C7 4C 72 C9 A5 55 58 B5 6A 55 5B 15 56 AC 4B C7 4C 74 C9 A5 55 58 B5 4B 55 5B 15 54 BC 4B C7 4C 66 CB 45 55 58 B5 6C 55 5B 15 72 65
+data_access: sending 110 bytes: DD F6 11 A9 66 59 99 69 B1 69 55 71 58 B5 66 55 5B 15 56 6C 4B C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 4B C7 45 4E 8F 45 55 58 B5 5A 55 5B 15 55 AC 4B C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 4B C7 4C 72 C9 A5 55 58 B5 6A 55 5B 15 56 AC 4B C7 4C 74 C9 A5 55 58 B5 4B 55 5B 15 54 BC 4B C7 4C 66 CB 45 55 58 B5 6C 55 5B 15 72 65
+data_access: sending 110 bytes: DD F6 11 A9 66 59 99 69 B1 69 55 71 58 B5 66 55 5B 15 56 6C 4B C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 4B C7 45 4E 8F 45 55 58 B5 5A 55 5B 15 55 AC 4B C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 4B C7 4C 72 C9 A5 55 58 B5 6A 55 5B 15 56 AC 4B C7 4C 74 C9 A5 55 58 B5 4B 55 5B 15 54 BC 4B C7 4C 66 CB 45 55 58 B5 6C 55 5B 15 72 65
+data_access: sending 110 bytes: DD F6 11 A9 66 59 99 69 B1 69 55 71 58 B5 66 55 5B 15 56 6C 4B C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 4B C7 45 4E 8F 45 55 58 B5 5A 55 5B 15 55 AC 4B C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 4B C7 4C 72 C9 A5 55 58 B5 6A 55 5B 15 56 AC 4B C7 4C 74 C9 A5 55 58 B5 4B 55 5B 15 54 BC 4B C7 4C 66 CB 45 55 58 B5 6C 55 5B 15 72 65
+data_access: sending 110 bytes: DD F6 11 A9 66 59 99 69 B1 69 55 71 58 B5 66 55 5B 15 56 6C 4B C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 4B C7 45 4E 8F 45 55 58 B5 5A 55 5B 15 55 AC 4B C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 4B C7 4C 72 C9 A5 55 58 B5 6A 55 5B 15 56 AC 4B C7 4C 74 C9 A5 55 58 B5 4B 55 5B 15 54 BC 4B C7 4C 66 CB 45 55 58 B5 6C 55 5B 15 72 65
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (256378) GNARL: CmdSendAndListen
+D (256378) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (256388) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (256428) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 72 56 CC 4B C7 4C 5A C5 A5 55 58 B5 4D 55 5B 15 54 DC 4B C7 4C 6A C7 45 55 58 B5 4E 55 5B 15 54 EC 4B C7 4C 6C C7 45 55 58 B5 5C 55 5B 15 55 CC 4B C7 4C 4E C7 45 55 58 BC 55 55 5B 15 C5 5C 4B C7 4C 95 C7 45 55 58 BC 71 55 5B 15 C7 1C 4B C7 4C B2 C7 45 55 58 BC 72 55 5B 15 C7 2C 4B C7 4C B4 56 35
+send_bytes (109): F8 12 A9 66 59 99 69 B1 69 55 72 56 CC 4B C7 4C 5A C5 A5 55 58 B5 4D 55 5B 15 54 DC 4B C7 4C 6A C7 45 55 58 B5 4E 55 5B 15 54 EC 4B C7 4C 6C C7 45 55 58 B5 5C 55 5B 15 55 CC 4B C7 4C 4E C7 45 55 58 BC 55 55 5B 15 C5 5C 4B C7 4C 95 C7 45 55 58 BC 71 55 5B 15 C7 1C 4B C7 4C B2 C7 45 55 58 BC 72 55 5B 15 C7 2C 4B C7 4C B4 56 35
+D (256578) GNARL: GAP event 13
+D (256578) GNARL: notify for response count 30
+D (256588) GNARL: display_loop: op 2 arg -77
+D (256588) GNARL: pump RSSI = -77
+D (256588) GNARL: display_loop: op 1 arg -66
+D (256598) GNARL: phone RSSI = -66
+D (256598) GNARL: display_loop: op 3 arg 256
+D (256608) GNARL: command time = 256
+data_access: sending 110 bytes: DD F8 12 A9 66 59 99 69 B1 69 55 72 56 CC 4B C7 4C 5A C5 A5 55 58 B5 4D 55 5B 15 54 DC 4B C7 4C 6A C7 45 55 58 B5 4E 55 5B 15 54 EC 4B C7 4C 6C C7 45 55 58 B5 5C 55 5B 15 55 CC 4B C7 4C 4E C7 45 55 58 BC 55 55 5B 15 C5 5C 4B C7 4C 95 C7 45 55 58 BC 71 55 5B 15 C7 1C 4B C7 4C B2 C7 45 55 58 BC 72 55 5B 15 C7 2C 4B C7 4C B4 56 35
+data_access: sending 110 bytes: DD F8 12 A9 66 59 99 69 B1 69 55 72 56 CC 4B C7 4C 5A C5 A5 55 58 B5 4D 55 5B 15 54 DC 4B C7 4C 6A C7 45 55 58 B5 4E 55 5B 15 54 EC 4B C7 4C 6C C7 45 55 58 B5 5C 55 5B 15 55 CC 4B C7 4C 4E C7 45 55 58 BC 55 55 5B 15 C5 5C 4B C7 4C 95 C7 45 55 58 BC 71 55 5B 15 C7 1C 4B C7 4C B2 C7 45 55 58 BC 72 55 5B 15 C7 2C 4B C7 4C B4 56 35
+data_access: sending 110 bytes: DD F8 12 A9 66 59 99 69 B1 69 55 72 56 CC 4B C7 4C 5A C5 A5 55 58 B5 4D 55 5B 15 54 DC 4B C7 4C 6A C7 45 55 58 B5 4E 55 5B 15 54 EC 4B C7 4C 6C C7 45 55 58 B5 5C 55 5B 15 55 CC 4B C7 4C 4E C7 45 55 58 BC 55 55 5B 15 C5 5C 4B C7 4C 95 C7 45 55 58 BC 71 55 5B 15 C7 1C 4B C7 4C B2 C7 45 55 58 BC 72 55 5B 15 C7 2C 4B C7 4C B4 56 35
+data_access: sending 110 bytes: DD F8 12 A9 66 59 99 69 B1 69 55 72 56 CC 4B C7 4C 5A C5 A5 55 58 B5 4D 55 5B 15 54 DC 4B C7 4C 6A C7 45 55 58 B5 4E 55 5B 15 54 EC 4B C7 4C 6C C7 45 55 58 B5 5C 55 5B 15 55 CC 4B C7 4C 4E C7 45 55 58 BC 55 55 5B 15 C5 5C 4B C7 4C 95 C7 45 55 58 BC 71 55 5B 15 C7 1C 4B C7 4C B2 C7 45 55 58 BC 72 55 5B 15 C7 2C 4B C7 4C B4 56 35
+data_access: sending 110 bytes: DD F8 12 A9 66 59 99 69 B1 69 55 72 56 CC 4B C7 4C 5A C5 A5 55 58 B5 4D 55 5B 15 54 DC 4B C7 4C 6A C7 45 55 58 B5 4E 55 5B 15 54 EC 4B C7 4C 6C C7 45 55 58 B5 5C 55 5B 15 55 CC 4B C7 4C 4E C7 45 55 58 BC 55 55 5B 15 C5 5C 4B C7 4C 95 C7 45 55 58 BC 71 55 5B 15 C7 1C 4B C7 4C B2 C7 45 55 58 BC 72 55 5B 15 C7 2C 4B C7 4C B4 56 35
+data_access: sending 110 bytes: DD F8 12 A9 66 59 99 69 B1 69 55 72 56 CC 4B C7 4C 5A C5 A5 55 58 B5 4D 55 5B 15 54 DC 4B C7 4C 6A C7 45 55 58 B5 4E 55 5B 15 54 EC 4B C7 4C 6C C7 45 55 58 B5 5C 55 5B 15 55 CC 4B C7 4C 4E C7 45 55 58 BC 55 55 5B 15 C5 5C 4B C7 4C 95 C7 45 55 58 BC 71 55 5B 15 C7 1C 4B C7 4C B2 C7 45 55 58 BC 72 55 5B 15 C7 2C 4B C7 4C B4 56 35
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (258038) GNARL: CmdSendAndListen
+D (258038) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (258048) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (258078) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 63 C7 45 55 58 BC 63 55 5B 15 C6 3C 4B C7 4C A6 C5 A5 55 58 BC 74 55 5B 15 C7 4C 4B C7 4C 9A C5 A5 55 58 BC 65 55 5B 15 C6 5C 4B C7 4C AA C5 A5 55 58 BC 66 55 5B 15 C6 6C 4B C7 4C AC C5 A5 55 58 BC 56 55 5B 15 C5 6C 4B C7 4C 8E C5 A5 55 58 B5 55 55 5B 15 55 5C 6C C7 45 55 C5 A5 55 55 65 55 57 15
+send_bytes (109): 0C 13 A9 66 59 99 69 B1 69 55 63 C7 45 55 58 BC 63 55 5B 15 C6 3C 4B C7 4C A6 C5 A5 55 58 BC 74 55 5B 15 C7 4C 4B C7 4C 9A C5 A5 55 58 BC 65 55 5B 15 C6 5C 4B C7 4C AA C5 A5 55 58 BC 66 55 5B 15 C6 6C 4B C7 4C AC C5 A5 55 58 BC 56 55 5B 15 C5 6C 4B C7 4C 8E C5 A5 55 58 B5 55 55 5B 15 55 5C 6C C7 45 55 C5 A5 55 55 65 55 57 15
+D (258218) GNARL: GAP event 13
+D (258218) GNARL: notify for response count 31
+D (258228) GNARL: display_loop: op 2 arg -67
+D (258228) GNARL: pump RSSI = -67
+D (258228) GNARL: display_loop: op 1 arg -79
+D (258238) GNARL: phone RSSI = -79
+D (258238) GNARL: display_loop: op 3 arg 257
+D (258248) GNARL: command time = 257
+data_access: sending 110 bytes: DD 0C 13 A9 66 59 99 69 B1 69 55 63 C7 45 55 58 BC 63 55 5B 15 C6 3C 4B C7 4C A6 C5 A5 55 58 BC 74 55 5B 15 C7 4C 4B C7 4C 9A C5 A5 55 58 BC 65 55 5B 15 C6 5C 4B C7 4C AA C5 A5 55 58 BC 66 55 5B 15 C6 6C 4B C7 4C AC C5 A5 55 58 BC 56 55 5B 15 C5 6C 4B C7 4C 8E C5 A5 55 58 B5 55 55 5B 15 55 5C 6C C7 45 55 C5 A5 55 55 65 55 57 15
+data_access: sending 110 bytes: DD 0C 13 A9 66 59 99 69 B1 69 55 63 C7 45 55 58 BC 63 55 5B 15 C6 3C 4B C7 4C A6 C5 A5 55 58 BC 74 55 5B 15 C7 4C 4B C7 4C 9A C5 A5 55 58 BC 65 55 5B 15 C6 5C 4B C7 4C AA C5 A5 55 58 BC 66 55 5B 15 C6 6C 4B C7 4C AC C5 A5 55 58 BC 56 55 5B 15 C5 6C 4B C7 4C 8E C5 A5 55 58 B5 55 55 5B 15 55 5C 6C C7 45 55 C5 A5 55 55 65 55 57 15
+data_access: sending 110 bytes: DD 0C 13 A9 66 59 99 69 B1 69 55 63 C7 45 55 58 BC 63 55 5B 15 C6 3C 4B C7 4C A6 C5 A5 55 58 BC 74 55 5B 15 C7 4C 4B C7 4C 9A C5 A5 55 58 BC 65 55 5B 15 C6 5C 4B C7 4C AA C5 A5 55 58 BC 66 55 5B 15 C6 6C 4B C7 4C AC C5 A5 55 58 BC 56 55 5B 15 C5 6C 4B C7 4C 8E C5 A5 55 58 B5 55 55 5B 15 55 5C 6C C7 45 55 C5 A5 55 55 65 55 57 15
+data_access: sending 110 bytes: DD 0C 13 A9 66 59 99 69 B1 69 55 63 C7 45 55 58 BC 63 55 5B 15 C6 3C 4B C7 4C A6 C5 A5 55 58 BC 74 55 5B 15 C7 4C 4B C7 4C 9A C5 A5 55 58 BC 65 55 5B 15 C6 5C 4B C7 4C AA C5 A5 55 58 BC 66 55 5B 15 C6 6C 4B C7 4C AC C5 A5 55 58 BC 56 55 5B 15 C5 6C 4B C7 4C 8E C5 A5 55 58 B5 55 55 5B 15 55 5C 6C C7 45 55 C5 A5 55 55 65 55 57 15
+data_access: sending 110 bytes: DD 0C 13 A9 66 59 99 69 B1 69 55 63 C7 45 55 58 BC 63 55 5B 15 C6 3C 4B C7 4C A6 C5 A5 55 58 BC 74 55 5B 15 C7 4C 4B C7 4C 9A C5 A5 55 58 BC 65 55 5B 15 C6 5C 4B C7 4C AA C5 A5 55 58 BC 66 55 5B 15 C6 6C 4B C7 4C AC C5 A5 55 58 BC 56 55 5B 15 C5 6C 4B C7 4C 8E C5 A5 55 58 B5 55 55 5B 15 55 5C 6C C7 45 55 C5 A5 55 55 65 55 57 15
+data_access: sending 110 bytes: DD 0C 13 A9 66 59 99 69 B1 69 55 63 C7 45 55 58 BC 63 55 5B 15 C6 3C 4B C7 4C A6 C5 A5 55 58 BC 74 55 5B 15 C7 4C 4B C7 4C 9A C5 A5 55 58 BC 65 55 5B 15 C6 5C 4B C7 4C AA C5 A5 55 58 BC 66 55 5B 15 C6 6C 4B C7 4C AC C5 A5 55 58 BC 56 55 5B 15 C5 6C 4B C7 4C 8E C5 A5 55 58 B5 55 55 5B 15 55 5C 6C C7 45 55 C5 A5 55 55 65 55 57 15
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (259698) GNARL: CmdSendAndListen
+D (259698) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (259698) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (259738) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 74 55 55 72 39 A8 CB 67 45 55 55 55 55 98 E8 CB 67 45 65 55 55 55 55 55 55 55 55 55 55 55 72 39 A5 72 39 A9 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 58 B5 71 55 5B 15 97 25
+send_bytes (109): F8 14 A9 66 59 99 69 B1 69 55 74 55 55 72 39 A8 CB 67 45 55 55 55 55 98 E8 CB 67 45 65 55 55 55 55 55 55 55 55 55 55 55 72 39 A5 72 39 A9 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 58 B5 71 55 5B 15 97 25
+D (259908) GNARL: GAP event 13
+D (259908) GNARL: notify for response count 32
+D (259908) GNARL: display_loop: op 2 arg -77
+D (259918) GNARL: pump RSSI = -77
+D (259918) GNARL: display_loop: op 1 arg -76
+D (259918) GNARL: phone RSSI = -76
+D (259928) GNARL: display_loop: op 3 arg 259
+D (259928) GNARL: command time = 259
+data_access: sending 110 bytes: DD F8 14 A9 66 59 99 69 B1 69 55 74 55 55 72 39 A8 CB 67 45 55 55 55 55 98 E8 CB 67 45 65 55 55 55 55 55 55 55 55 55 55 55 72 39 A5 72 39 A9 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 58 B5 71 55 5B 15 97 25
+data_access: sending 110 bytes: DD F8 14 A9 66 59 99 69 B1 69 55 74 55 55 72 39 A8 CB 67 45 55 55 55 55 98 E8 CB 67 45 65 55 55 55 55 55 55 55 55 55 55 55 72 39 A5 72 39 A9 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 58 B5 71 55 5B 15 97 25
+data_access: sending 110 bytes: DD F8 14 A9 66 59 99 69 B1 69 55 74 55 55 72 39 A8 CB 67 45 55 55 55 55 98 E8 CB 67 45 65 55 55 55 55 55 55 55 55 55 55 55 72 39 A5 72 39 A9 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 58 B5 71 55 5B 15 97 25
+data_access: sending 110 bytes: DD F8 14 A9 66 59 99 69 B1 69 55 74 55 55 72 39 A8 CB 67 45 55 55 55 55 98 E8 CB 67 45 65 55 55 55 55 55 55 55 55 55 55 55 72 39 A5 72 39 A9 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 58 B5 71 55 5B 15 97 25
+data_access: sending 110 bytes: DD F8 14 A9 66 59 99 69 B1 69 55 74 55 55 72 39 A8 CB 67 45 55 55 55 55 98 E8 CB 67 45 65 55 55 55 55 55 55 55 55 55 55 55 72 39 A5 72 39 A9 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 58 B5 71 55 5B 15 97 25
+data_access: sending 110 bytes: DD F8 14 A9 66 59 99 69 B1 69 55 74 55 55 72 39 A8 CB 67 45 55 55 55 55 98 E8 CB 67 45 65 55 55 55 55 55 55 55 55 55 55 55 72 39 A5 72 39 A9 B4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 58 B5 71 55 5B 15 97 25
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (261208) GNARL: CmdSendAndListen
+D (261208) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (261218) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (261248) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 65 57 1C 6C C7 45 72 C6 C5 55 58 B5 72 55 5B 15 57 2C 6C C7 45 74 C9 55 55 58 B5 63 55 5B 15 56 3C 6C C7 45 66 C9 A5 55 58 B5 74 55 5B 15 57 4C 6C C7 45 5A CA C5 55 58 B5 65 55 5B 15 56 5C 6C C7 45 6A 8F 45 55 58 B5 66 55 5B 15 56 6C 6C C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 6C C7 45 4E 39 55
+send_bytes (109): 08 15 A9 66 59 99 69 B1 69 55 65 57 1C 6C C7 45 72 C6 C5 55 58 B5 72 55 5B 15 57 2C 6C C7 45 74 C9 55 55 58 B5 63 55 5B 15 56 3C 6C C7 45 66 C9 A5 55 58 B5 74 55 5B 15 57 4C 6C C7 45 5A CA C5 55 58 B5 65 55 5B 15 56 5C 6C C7 45 6A 8F 45 55 58 B5 66 55 5B 15 56 6C 6C C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 6C C7 45 4E 39 55
+D (261418) GNARL: GAP event 13
+D (261418) GNARL: notify for response count 33
+D (261418) GNARL: display_loop: op 2 arg -69
+D (261428) GNARL: pump RSSI = -69
+D (261428) GNARL: display_loop: op 1 arg -74
+D (261438) GNARL: phone RSSI = -74
+D (261438) GNARL: display_loop: op 3 arg 261
+D (261438) GNARL: command time = 261
+data_access: sending 110 bytes: DD 08 15 A9 66 59 99 69 B1 69 55 65 57 1C 6C C7 45 72 C6 C5 55 58 B5 72 55 5B 15 57 2C 6C C7 45 74 C9 55 55 58 B5 63 55 5B 15 56 3C 6C C7 45 66 C9 A5 55 58 B5 74 55 5B 15 57 4C 6C C7 45 5A CA C5 55 58 B5 65 55 5B 15 56 5C 6C C7 45 6A 8F 45 55 58 B5 66 55 5B 15 56 6C 6C C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 6C C7 45 4E 39 55
+data_access: sending 110 bytes: DD 08 15 A9 66 59 99 69 B1 69 55 65 57 1C 6C C7 45 72 C6 C5 55 58 B5 72 55 5B 15 57 2C 6C C7 45 74 C9 55 55 58 B5 63 55 5B 15 56 3C 6C C7 45 66 C9 A5 55 58 B5 74 55 5B 15 57 4C 6C C7 45 5A CA C5 55 58 B5 65 55 5B 15 56 5C 6C C7 45 6A 8F 45 55 58 B5 66 55 5B 15 56 6C 6C C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 6C C7 45 4E 39 55
+data_access: sending 110 bytes: DD 08 15 A9 66 59 99 69 B1 69 55 65 57 1C 6C C7 45 72 C6 C5 55 58 B5 72 55 5B 15 57 2C 6C C7 45 74 C9 55 55 58 B5 63 55 5B 15 56 3C 6C C7 45 66 C9 A5 55 58 B5 74 55 5B 15 57 4C 6C C7 45 5A CA C5 55 58 B5 65 55 5B 15 56 5C 6C C7 45 6A 8F 45 55 58 B5 66 55 5B 15 56 6C 6C C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 6C C7 45 4E 39 55
+data_access: sending 110 bytes: DD 08 15 A9 66 59 99 69 B1 69 55 65 57 1C 6C C7 45 72 C6 C5 55 58 B5 72 55 5B 15 57 2C 6C C7 45 74 C9 55 55 58 B5 63 55 5B 15 56 3C 6C C7 45 66 C9 A5 55 58 B5 74 55 5B 15 57 4C 6C C7 45 5A CA C5 55 58 B5 65 55 5B 15 56 5C 6C C7 45 6A 8F 45 55 58 B5 66 55 5B 15 56 6C 6C C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 6C C7 45 4E 39 55
+data_access: sending 110 bytes: DD 08 15 A9 66 59 99 69 B1 69 55 65 57 1C 6C C7 45 72 C6 C5 55 58 B5 72 55 5B 15 57 2C 6C C7 45 74 C9 55 55 58 B5 63 55 5B 15 56 3C 6C C7 45 66 C9 A5 55 58 B5 74 55 5B 15 57 4C 6C C7 45 5A CA C5 55 58 B5 65 55 5B 15 56 5C 6C C7 45 6A 8F 45 55 58 B5 66 55 5B 15 56 6C 6C C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 6C C7 45 4E 39 55
+data_access: sending 110 bytes: DD 08 15 A9 66 59 99 69 B1 69 55 65 57 1C 6C C7 45 72 C6 C5 55 58 B5 72 55 5B 15 57 2C 6C C7 45 74 C9 55 55 58 B5 63 55 5B 15 56 3C 6C C7 45 66 C9 A5 55 58 B5 74 55 5B 15 57 4C 6C C7 45 5A CA C5 55 58 B5 65 55 5B 15 56 5C 6C C7 45 6A 8F 45 55 58 B5 66 55 5B 15 56 6C 6C C7 45 6C 8F 45 55 58 B5 56 55 5B 15 55 6C 6C C7 45 4E 39 55
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (262718) GNARL: CmdSendAndListen
+D (262718) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (262728) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (262758) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 66 8F 45 55 58 B5 5A 55 5B 15 55 AC 6C C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 6C C7 4C 72 C9 A5 55 57 15 71 C9 55 71 C9 55 55 55 55 55 55 C3 A5 D1 99 6C C7 45 8B 56 A5 55 B1 55 6A C6 CC 74 C7 4C 9A 55 55 71 55 5B 32 55 5B 32 57 15 5C 55 5C 72 71 9D 19 96 CC 74 55 55 55 55 55 55 55 55 55 8C B5
+send_bytes (109): 0A 16 A9 66 59 99 69 B1 69 55 66 8F 45 55 58 B5 5A 55 5B 15 55 AC 6C C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 6C C7 4C 72 C9 A5 55 57 15 71 C9 55 71 C9 55 55 55 55 55 55 C3 A5 D1 99 6C C7 45 8B 56 A5 55 B1 55 6A C6 CC 74 C7 4C 9A 55 55 71 55 5B 32 55 5B 32 57 15 5C 55 5C 72 71 9D 19 96 CC 74 55 55 55 55 55 55 55 55 55 8C B5
+D (262928) GNARL: GAP event 13
+D (262928) GNARL: notify for response count 34
+D (262938) GNARL: display_loop: op 2 arg -68
+D (262938) GNARL: pump RSSI = -68
+D (262938) GNARL: display_loop: op 1 arg -81
+D (262948) GNARL: phone RSSI = -81
+D (262948) GNARL: display_loop: op 3 arg 262
+D (262948) GNARL: command time = 262
+data_access: sending 110 bytes: DD 0A 16 A9 66 59 99 69 B1 69 55 66 8F 45 55 58 B5 5A 55 5B 15 55 AC 6C C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 6C C7 4C 72 C9 A5 55 57 15 71 C9 55 71 C9 55 55 55 55 55 55 C3 A5 D1 99 6C C7 45 8B 56 A5 55 B1 55 6A C6 CC 74 C7 4C 9A 55 55 71 55 5B 32 55 5B 32 57 15 5C 55 5C 72 71 9D 19 96 CC 74 55 55 55 55 55 55 55 55 55 8C B5
+data_access: sending 110 bytes: DD 0A 16 A9 66 59 99 69 B1 69 55 66 8F 45 55 58 B5 5A 55 5B 15 55 AC 6C C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 6C C7 4C 72 C9 A5 55 57 15 71 C9 55 71 C9 55 55 55 55 55 55 C3 A5 D1 99 6C C7 45 8B 56 A5 55 B1 55 6A C6 CC 74 C7 4C 9A 55 55 71 55 5B 32 55 5B 32 57 15 5C 55 5C 72 71 9D 19 96 CC 74 55 55 55 55 55 55 55 55 55 8C B5
+data_access: sending 110 bytes: DD 0A 16 A9 66 59 99 69 B1 69 55 66 8F 45 55 58 B5 5A 55 5B 15 55 AC 6C C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 6C C7 4C 72 C9 A5 55 57 15 71 C9 55 71 C9 55 55 55 55 55 55 C3 A5 D1 99 6C C7 45 8B 56 A5 55 B1 55 6A C6 CC 74 C7 4C 9A 55 55 71 55 5B 32 55 5B 32 57 15 5C 55 5C 72 71 9D 19 96 CC 74 55 55 55 55 55 55 55 55 55 8C B5
+data_access: sending 110 bytes: DD 0A 16 A9 66 59 99 69 B1 69 55 66 8F 45 55 58 B5 5A 55 5B 15 55 AC 6C C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 6C C7 4C 72 C9 A5 55 57 15 71 C9 55 71 C9 55 55 55 55 55 55 C3 A5 D1 99 6C C7 45 8B 56 A5 55 B1 55 6A C6 CC 74 C7 4C 9A 55 55 71 55 5B 32 55 5B 32 57 15 5C 55 5C 72 71 9D 19 96 CC 74 55 55 55 55 55 55 55 55 55 8C B5
+data_access: sending 110 bytes: DD 0A 16 A9 66 59 99 69 B1 69 55 66 8F 45 55 58 B5 5A 55 5B 15 55 AC 6C C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 6C C7 4C 72 C9 A5 55 57 15 71 C9 55 71 C9 55 55 55 55 55 55 C3 A5 D1 99 6C C7 45 8B 56 A5 55 B1 55 6A C6 CC 74 C7 4C 9A 55 55 71 55 5B 32 55 5B 32 57 15 5C 55 5C 72 71 9D 19 96 CC 74 55 55 55 55 55 55 55 55 55 8C B5
+data_access: sending 110 bytes: DD 0A 16 A9 66 59 99 69 B1 69 55 66 8F 45 55 58 B5 5A 55 5B 15 55 AC 6C C7 4C 55 C9 A5 55 58 B5 59 55 5B 15 55 9C 6C C7 4C 72 C9 A5 55 57 15 71 C9 55 71 C9 55 55 55 55 55 55 C3 A5 D1 99 6C C7 45 8B 56 A5 55 B1 55 6A C6 CC 74 C7 4C 9A 55 55 71 55 5B 32 55 5B 32 57 15 5C 55 5C 72 71 9D 19 96 CC 74 55 55 55 55 55 55 55 55 55 8C B5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (264378) GNARL: CmdSendAndListen
+D (264378) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (264378) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (264418) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 69 95
+send_bytes (109): 04 17 A9 66 59 99 69 B1 69 55 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 69 95
+D (264578) GNARL: GAP event 13
+D (264578) GNARL: notify for response count 35
+D (264588) GNARL: display_loop: op 2 arg -71
+D (264588) GNARL: pump RSSI = -71
+D (264588) GNARL: display_loop: op 1 arg -70
+D (264598) GNARL: phone RSSI = -70
+D (264598) GNARL: display_loop: op 3 arg 264
+D (264608) GNARL: command time = 264
+data_access: sending 110 bytes: DD 04 17 A9 66 59 99 69 B1 69 55 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 69 95
+data_access: sending 110 bytes: DD 04 17 A9 66 59 99 69 B1 69 55 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 69 95
+data_access: sending 110 bytes: DD 04 17 A9 66 59 99 69 B1 69 55 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 69 95
+data_access: sending 110 bytes: DD 04 17 A9 66 59 99 69 B1 69 55 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 69 95
+data_access: sending 110 bytes: DD 04 17 A9 66 59 99 69 B1 69 55 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 69 95
+data_access: sending 110 bytes: DD 04 17 A9 66 59 99 69 B1 69 55 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 69 95
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (265888) GNARL: CmdSendAndListen
+D (265888) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (265898) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (265928) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 5A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 C5
+send_bytes (109): FE 18 A9 66 59 99 69 B1 69 55 5A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 C5
+D (266058) GNARL: GAP event 13
+D (266068) GNARL: notify for response count 36
+D (266068) GNARL: display_loop: op 2 arg -74
+D (266078) GNARL: pump RSSI = -74
+D (266078) GNARL: display_loop: op 1 arg -68
+D (266078) GNARL: phone RSSI = -68
+D (266088) GNARL: display_loop: op 3 arg 265
+D (266088) GNARL: command time = 265
+data_access: sending 110 bytes: DD FE 18 A9 66 59 99 69 B1 69 55 5A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 C5
+data_access: sending 110 bytes: DD FE 18 A9 66 59 99 69 B1 69 55 5A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 C5
+data_access: sending 110 bytes: DD FE 18 A9 66 59 99 69 B1 69 55 5A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 C5
+data_access: sending 110 bytes: DD FE 18 A9 66 59 99 69 B1 69 55 5A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 C5
+data_access: sending 110 bytes: DD FE 18 A9 66 59 99 69 B1 69 55 5A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 C5
+data_access: sending 110 bytes: DD FE 18 A9 66 59 99 69 B1 69 55 5A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C6 C5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (267248) GNARL: CmdSendAndListen
+D (267248) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (267258) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (267298) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 59 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C8 E5
+send_bytes (109): 04 19 A9 66 59 99 69 B1 69 55 59 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C8 E5
+D (267458) GNARL: GAP event 13
+D (267458) GNARL: notify for response count 37
+D (267468) GNARL: display_loop: op 2 arg -71
+D (267468) GNARL: pump RSSI = -71
+D (267478) GNARL: display_loop: op 1 arg -67
+D (267478) GNARL: phone RSSI = -67
+D (267478) GNARL: display_loop: op 3 arg 267
+D (267488) GNARL: command time = 267
+data_access: sending 110 bytes: DD 04 19 A9 66 59 99 69 B1 69 55 59 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C8 E5
+data_access: sending 110 bytes: DD 04 19 A9 66 59 99 69 B1 69 55 59 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C8 E5
+data_access: sending 110 bytes: DD 04 19 A9 66 59 99 69 B1 69 55 59 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C8 E5
+data_access: sending 110 bytes: DD 04 19 A9 66 59 99 69 B1 69 55 59 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C8 E5
+data_access: sending 110 bytes: DD 04 19 A9 66 59 99 69 B1 69 55 59 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C8 E5
+data_access: sending 110 bytes: DD 04 19 A9 66 59 99 69 B1 69 55 59 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 C8 E5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (268668) GNARL: CmdSendAndListen
+D (268668) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (268668) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (268708) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 6A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 59 A5
+send_bytes (109): 08 1A A9 66 59 99 69 B1 69 55 6A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 59 A5
+D (268878) GNARL: GAP event 13
+D (268878) GNARL: notify for response count 38
+D (268878) GNARL: display_loop: op 2 arg -69
+D (268888) GNARL: pump RSSI = -69
+D (268888) GNARL: display_loop: op 1 arg -68
+D (268888) GNARL: phone RSSI = -68
+D (268898) GNARL: display_loop: op 3 arg 268
+D (268898) GNARL: command time = 268
+data_access: sending 110 bytes: DD 08 1A A9 66 59 99 69 B1 69 55 6A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 59 A5
+data_access: sending 110 bytes: DD 08 1A A9 66 59 99 69 B1 69 55 6A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 59 A5
+data_access: sending 110 bytes: DD 08 1A A9 66 59 99 69 B1 69 55 6A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 59 A5
+data_access: sending 110 bytes: DD 08 1A A9 66 59 99 69 B1 69 55 6A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 59 A5
+data_access: sending 110 bytes: DD 08 1A A9 66 59 99 69 B1 69 55 6A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 59 A5
+data_access: sending 110 bytes: DD 08 1A A9 66 59 99 69 B1 69 55 6A 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 59 A5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (270178) GNARL: CmdSendAndListen
+D (270178) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (270188) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (270218) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 4B 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 D2 A5
+send_bytes (109): 01 1B A9 66 59 99 69 B1 69 55 4B 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 D2 A5
+D (270358) GNARL: GAP event 13
+D (270358) GNARL: notify for response count 39
+D (270368) GNARL: display_loop: op 2 arg -73
+D (270368) GNARL: pump RSSI = -73
+D (270368) GNARL: display_loop: op 1 arg -69
+D (270378) GNARL: phone RSSI = -69
+D (270378) GNARL: display_loop: op 3 arg 270
+D (270388) GNARL: command time = 270
+data_access: sending 110 bytes: DD 01 1B A9 66 59 99 69 B1 69 55 4B 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 D2 A5
+data_access: sending 110 bytes: DD 01 1B A9 66 59 99 69 B1 69 55 4B 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 D2 A5
+data_access: sending 110 bytes: DD 01 1B A9 66 59 99 69 B1 69 55 4B 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 D2 A5
+data_access: sending 110 bytes: DD 01 1B A9 66 59 99 69 B1 69 55 4B 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 D2 A5
+data_access: sending 110 bytes: DD 01 1B A9 66 59 99 69 B1 69 55 4B 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 D2 A5
+data_access: sending 110 bytes: DD 01 1B A9 66 59 99 69 B1 69 55 4B 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 D2 A5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (271688) GNARL: CmdSendAndListen
+D (271688) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (271698) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (271728) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 37 45
+send_bytes (109): EE 1C A9 66 59 99 69 B1 69 55 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 37 45
+D (271898) GNARL: GAP event 13
+D (271898) GNARL: notify for response count 40
+D (271908) GNARL: display_loop: op 2 arg -82
+D (271908) GNARL: pump RSSI = -82
+D (271908) GNARL: display_loop: op 1 arg -69
+D (271918) GNARL: phone RSSI = -69
+D (271918) GNARL: display_loop: op 3 arg 271
+D (271918) GNARL: command time = 271
+data_access: sending 110 bytes: DD EE 1C A9 66 59 99 69 B1 69 55 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 37 45
+data_access: sending 110 bytes: DD EE 1C A9 66 59 99 69 B1 69 55 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 37 45
+data_access: sending 110 bytes: DD EE 1C A9 66 59 99 69 B1 69 55 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 37 45
+data_access: sending 110 bytes: DD EE 1C A9 66 59 99 69 B1 69 55 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 37 45
+data_access: sending 110 bytes: DD EE 1C A9 66 59 99 69 B1 69 55 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 37 45
+data_access: sending 110 bytes: DD EE 1C A9 66 59 99 69 B1 69 55 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 37 45
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (273348) GNARL: CmdSendAndListen
+D (273348) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (273348) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (273388) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 4D 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 3A 65
+send_bytes (109): FE 1D A9 66 59 99 69 B1 69 55 4D 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 3A 65
+D (273558) GNARL: GAP event 13
+D (273558) GNARL: notify for response count 41
+D (273558) GNARL: display_loop: op 2 arg -74
+D (273568) GNARL: pump RSSI = -74
+D (273568) GNARL: display_loop: op 1 arg -70
+D (273568) GNARL: phone RSSI = -70
+D (273578) GNARL: display_loop: op 3 arg 273
+D (273578) GNARL: command time = 273
+data_access: sending 110 bytes: DD FE 1D A9 66 59 99 69 B1 69 55 4D 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 3A 65
+data_access: sending 110 bytes: DD FE 1D A9 66 59 99 69 B1 69 55 4D 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 3A 65
+data_access: sending 110 bytes: DD FE 1D A9 66 59 99 69 B1 69 55 4D 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 3A 65
+data_access: sending 110 bytes: DD FE 1D A9 66 59 99 69 B1 69 55 4D 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 3A 65
+data_access: sending 110 bytes: DD FE 1D A9 66 59 99 69 B1 69 55 4D 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 3A 65
+data_access: sending 110 bytes: DD FE 1D A9 66 59 99 69 B1 69 55 4D 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 3A 65
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (274808) GNARL: CmdSendAndListen
+D (274808) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (274818) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (274848) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 4E 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 2D 55
+send_bytes (109): 0C 1E A9 66 59 99 69 B1 69 55 4E 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 2D 55
+D (275018) GNARL: GAP event 13
+D (275018) GNARL: notify for response count 42
+D (275018) GNARL: display_loop: op 2 arg -67
+D (275028) GNARL: pump RSSI = -67
+D (275028) GNARL: display_loop: op 1 arg -78
+D (275038) GNARL: phone RSSI = -78
+D (275038) GNARL: display_loop: op 3 arg 274
+D (275038) GNARL: command time = 274
+data_access: sending 110 bytes: DD 0C 1E A9 66 59 99 69 B1 69 55 4E 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 2D 55
+data_access: sending 110 bytes: DD 0C 1E A9 66 59 99 69 B1 69 55 4E 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 2D 55
+data_access: sending 110 bytes: DD 0C 1E A9 66 59 99 69 B1 69 55 4E 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 2D 55
+data_access: sending 110 bytes: DD 0C 1E A9 66 59 99 69 B1 69 55 4E 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 2D 55
+data_access: sending 110 bytes: DD 0C 1E A9 66 59 99 69 B1 69 55 4E 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 2D 55
+data_access: sending 110 bytes: DD 0C 1E A9 66 59 99 69 B1 69 55 4E 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 2D 55
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (276268) GNARL: CmdSendAndListen
+D (276268) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (276278) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (276308) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 55 5C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6B 25
+send_bytes (109): F6 1F A9 66 59 99 69 B1 69 55 5C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6B 25
+D (276578) GNARL: GAP event 13
+D (276578) GNARL: notify for response count 43
+D (276588) GNARL: display_loop: op 2 arg -78
+D (276588) GNARL: pump RSSI = -78
+D (276588) GNARL: display_loop: op 1 arg -74
+D (276598) GNARL: phone RSSI = -74
+D (276598) GNARL: display_loop: op 3 arg 276
+D (276608) GNARL: command time = 276
+data_access: sending 110 bytes: DD F6 1F A9 66 59 99 69 B1 69 55 5C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6B 25
+data_access: sending 110 bytes: DD F6 1F A9 66 59 99 69 B1 69 55 5C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6B 25
+data_access: sending 110 bytes: DD F6 1F A9 66 59 99 69 B1 69 55 5C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6B 25
+data_access: sending 110 bytes: DD F6 1F A9 66 59 99 69 B1 69 55 5C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6B 25
+data_access: sending 110 bytes: DD F6 1F A9 66 59 99 69 B1 69 55 5C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6B 25
+data_access: sending 110 bytes: DD F6 1F A9 66 59 99 69 B1 69 55 5C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6B 25
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 56 65 55 CA 55 00
+I (277778) GNARL: CmdSendAndListen
+D (277778) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (277788) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+D (277828) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 69 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6A 3C B1 94 B5
+send_bytes (109): FE 20 A9 66 59 99 69 B1 69 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6A 3C B1 94 B5
+D (277988) GNARL: GAP event 13
+D (277988) GNARL: notify for response count 44
+D (277998) GNARL: display_loop: op 2 arg -74
+D (277998) GNARL: pump RSSI = -74
+D (278008) GNARL: display_loop: op 1 arg -65
+D (278008) GNARL: phone RSSI = -65
+D (278008) GNARL: display_loop: op 3 arg 277
+D (278018) GNARL: command time = 277
+data_access: sending 110 bytes: DD FE 20 A9 66 59 99 69 B1 69 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6A 3C B1 94 B5
+data_access: sending 110 bytes: DD FE 20 A9 66 59 99 69 B1 69 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6A 3C B1 94 B5
+data_access: sending 110 bytes: DD FE 20 A9 66 59 99 69 B1 69 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6A 3C B1 94 B5
+data_access: sending 110 bytes: DD FE 20 A9 66 59 99 69 B1 69 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6A 3C B1 94 B5
+data_access: sending 110 bytes: DD FE 20 A9 66 59 99 69 B1 69 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6A 3C B1 94 B5
+data_access: sending 110 bytes: DD FE 20 A9 66 59 99 69 B1 69 56 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 6A 3C B1 94 B5
+D (301448) GNARL: timer tick 5
+D (301448) GNARL: not notifying for timer tick
+D (361448) GNARL: timer tick 6
+D (361448) GNARL: not notifying for timer tick
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (366308) GNARL: CmdSendAndListen
+D (366308) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (366318) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (370498) GNARL: rfspy_command 5, queue length 0
+D (395488) GNARL: RX: timeout
+D (395488) GNARL: send_code AA
+D (395488) GNARL: GAP event 13
+D (395488) GNARL: notify for response count 45
+D (395488) GNARL: display_loop: op 2 arg -74
+D (395488) GNARL: pump RSSI = -74
+D (395498) GNARL: display_loop: op 1 arg -71
+D (395498) GNARL: phone RSSI = -71
+D (395498) GNARL: display_loop: op 3 arg 395
+D (395508) GNARL: command time = 395
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (397458) GNARL: CmdSendAndListen
+D (397458) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (397468) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (401648) GNARL: rfspy_command 5, queue length 0
+D (421448) GNARL: timer tick 7
+D (421448) GNARL: not notifying for timer tick
+D (426638) GNARL: RX: timeout
+D (426638) GNARL: send_code AA
+D (426638) GNARL: GAP event 13
+D (426638) GNARL: notify for response count 46
+D (426638) GNARL: display_loop: op 2 arg -74
+D (426638) GNARL: pump RSSI = -74
+D (426648) GNARL: display_loop: op 1 arg -86
+D (426648) GNARL: phone RSSI = -86
+D (426648) GNARL: display_loop: op 3 arg 426
+D (426658) GNARL: command time = 426
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (428948) GNARL: CmdSendAndListen
+D (428948) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (428958) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (433138) GNARL: rfspy_command 5, queue length 0
+D (458128) GNARL: RX: timeout
+D (458128) GNARL: send_code AA
+D (458128) GNARL: GAP event 13
+D (458128) GNARL: notify for response count 47
+D (458128) GNARL: display_loop: op 2 arg -74
+D (458128) GNARL: pump RSSI = -74
+D (458138) GNARL: display_loop: op 1 arg -81
+D (458138) GNARL: phone RSSI = -81
+D (458138) GNARL: display_loop: op 3 arg 457
+D (458148) GNARL: command time = 457
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (460008) GNARL: CmdSendAndListen
+D (460008) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (460008) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (464188) GNARL: rfspy_command 5, queue length 0
+D (481448) GNARL: timer tick 8
+D (481448) GNARL: not notifying for timer tick
+D (489178) GNARL: RX: timeout
+D (489178) GNARL: send_code AA
+D (489178) GNARL: GAP event 13
+D (489178) GNARL: notify for response count 48
+D (489178) GNARL: display_loop: op 2 arg -74
+D (489178) GNARL: pump RSSI = -74
+D (489188) GNARL: display_loop: op 1 arg -76
+D (489188) GNARL: phone RSSI = -76
+D (489188) GNARL: display_loop: op 3 arg 488
+D (489198) GNARL: command time = 488
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (490958) GNARL: CmdSendAndListen
+D (490958) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (490968) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (495148) GNARL: rfspy_command 5, queue length 0
+D (520138) GNARL: RX: timeout
+D (520138) GNARL: send_code AA
+D (520138) GNARL: GAP event 13
+D (520138) GNARL: notify for response count 49
+D (520138) GNARL: display_loop: op 2 arg -74
+D (520138) GNARL: pump RSSI = -74
+D (520148) GNARL: display_loop: op 1 arg -78
+D (520148) GNARL: phone RSSI = -78
+D (520148) GNARL: display_loop: op 3 arg 519
+D (520158) GNARL: command time = 519
+data_access: sending 1 bytes: AA
+D (541448) GNARL: timer tick 9
+D (541448) GNARL: not notifying for timer tick
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (600398) GNARL: CmdSendAndListen
+D (600398) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (600408) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (604588) GNARL: timer tick 10
+D (604588) GNARL: not notifying for timer tick
+D (604588) GNARL: rfspy_command 5, queue length 0
+D (629578) GNARL: RX: timeout
+D (629578) GNARL: send_code AA
+D (629578) GNARL: GAP event 13
+D (629578) GNARL: notify for response count 50
+D (629578) GNARL: display_loop: op 2 arg -74
+D (629578) GNARL: pump RSSI = -74
+D (629588) GNARL: display_loop: op 1 arg -79
+D (629588) GNARL: phone RSSI = -79
+D (629588) GNARL: display_loop: op 3 arg 629
+D (629598) GNARL: command time = 629
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (631358) GNARL: CmdSendAndListen
+D (631358) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (631358) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (635538) GNARL: rfspy_command 5, queue length 0
+D (660538) GNARL: RX: timeout
+D (660538) GNARL: send_code AA
+D (660538) GNARL: GAP event 13
+D (660538) GNARL: notify for response count 51
+D (660538) GNARL: display_loop: op 2 arg -74
+D (660538) GNARL: pump RSSI = -74
+D (660548) GNARL: display_loop: op 1 arg -85
+D (660548) GNARL: phone RSSI = -85
+D (660548) GNARL: display_loop: op 3 arg 660
+D (660558) GNARL: command time = 660
+data_access: sending 1 bytes: AA
+D (661448) GNARL: timer tick 11
+D (661448) GNARL: not notifying for timer tick
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (662798) GNARL: CmdSendAndListen
+D (662798) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (662808) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (666978) GNARL: rfspy_command 5, queue length 0
+D (691978) GNARL: RX: timeout
+D (691978) GNARL: send_code AA
+D (691978) GNARL: GAP event 13
+D (691978) GNARL: notify for response count 52
+D (691978) GNARL: display_loop: op 2 arg -74
+D (691978) GNARL: pump RSSI = -74
+D (691988) GNARL: display_loop: op 1 arg -77
+D (691988) GNARL: phone RSSI = -77
+D (691988) GNARL: display_loop: op 3 arg 691
+D (691998) GNARL: command time = 691
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (693758) GNARL: CmdSendAndListen
+D (693758) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (693758) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (697938) GNARL: rfspy_command 5, queue length 0
+D (721448) GNARL: timer tick 12
+D (721448) GNARL: not notifying for timer tick
+D (722938) GNARL: RX: timeout
+D (722938) GNARL: send_code AA
+D (722938) GNARL: GAP event 13
+D (722938) GNARL: notify for response count 53
+D (722938) GNARL: display_loop: op 2 arg -74
+D (722938) GNARL: pump RSSI = -74
+D (722948) GNARL: display_loop: op 1 arg -84
+D (722948) GNARL: phone RSSI = -84
+D (722948) GNARL: display_loop: op 3 arg 722
+D (722958) GNARL: command time = 722
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (724708) GNARL: CmdSendAndListen
+D (724708) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (724718) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (728898) GNARL: rfspy_command 5, queue length 0
+D (753888) GNARL: RX: timeout
+D (753888) GNARL: send_code AA
+D (753888) GNARL: GAP event 13
+D (753888) GNARL: notify for response count 54
+D (753888) GNARL: display_loop: op 2 arg -74
+D (753888) GNARL: pump RSSI = -74
+D (753898) GNARL: display_loop: op 1 arg -81
+D (753898) GNARL: phone RSSI = -81
+D (753898) GNARL: display_loop: op 3 arg 753
+D (753908) GNARL: command time = 753
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (755908) GNARL: CmdSendAndListen
+D (755908) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (755918) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+RX: received 107 bytes: A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+send_bytes (109): CE 21 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+D (760198) GNARL: GAP event 13
+D (760198) GNARL: notify for response count 55
+D (760198) GNARL: display_loop: op 2 arg -98
+D (760198) GNARL: rfspy_command 5, queue length 0
+D (760208) GNARL: pump RSSI = -98
+D (760218) GNARL: display_loop: op 1 arg -75
+D (760218) GNARL: phone RSSI = -75
+D (760218) GNARL: display_loop: op 3 arg 759
+D (760228) GNARL: command time = 759
+data_access: sending 110 bytes: DD CE 21 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD CE 21 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD CE 21 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD CE 21 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD CE 21 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: sending 110 bytes: DD CE 21 A9 66 59 99 69 B1 68 D5 59 56 38 D6 8E 58 F4 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 95 A5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 07 D0 00 00 00 A9 66 59 99 69 B1 65 A5 55 8E 55 00
+I (761468) GNARL: CmdSendAndListen
+D (761468) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (761468) GNARL: send_and_listen: listen_channel 0 timeout_ms 2000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 65 A5 55 8E 55
+D (761508) GNARL: rfspy_command 5, queue length 0
+RX: received 107 bytes: A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+send_bytes (109): 0A 22 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+D (761678) GNARL: GAP event 13
+D (761678) GNARL: notify for response count 56
+D (761678) GNARL: display_loop: op 2 arg -68
+D (761688) GNARL: pump RSSI = -68
+D (761688) GNARL: display_loop: op 1 arg -69
+D (761698) GNARL: phone RSSI = -69
+D (761698) GNARL: display_loop: op 3 arg 761
+D (761698) GNARL: command time = 761
+data_access: sending 110 bytes: DD 0A 22 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 22 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 22 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 22 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 22 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: sending 110 bytes: DD 0A 22 A9 66 59 99 69 B1 65 A5 66 55 55 55 55 59 6C 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 8E A5
+data_access: received 26 bytes: 19 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 55 9A 35 00
+I (762878) GNARL: CmdSendAndListen
+D (762878) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 0 delay_ms 0
+D (762888) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 D2 C5 55 9A 35
+D (762918) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+send_bytes (13): FC 23 A9 66 59 99 69 B1 56 65 55 CA 55
+D (762978) GNARL: GAP event 13
+D (762978) GNARL: notify for response count 57
+D (762988) GNARL: display_loop: op 2 arg -75
+D (762988) GNARL: pump RSSI = -75
+D (762988) GNARL: display_loop: op 1 arg -74
+D (762998) GNARL: phone RSSI = -74
+D (762998) GNARL: display_loop: op 3 arg 762
+D (762998) GNARL: command time = 762
+data_access: sending 14 bytes: DD FC 23 A9 66 59 99 69 B1 56 65 55 CA 55
+data_access: received 122 bytes: 79 05 00 00 00 00 00 00 00 0F A0 00 00 00 A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35 00
+I (764218) GNARL: CmdSendAndListen
+D (764218) GNARL: send_and_listen: len 120 send_channel 0 repeat_count 0 delay_ms 0
+D (764228) GNARL: send_and_listen: listen_channel 0 timeout_ms 4000 retry_count 0
+TX: sending 107 bytes: A9 66 59 99 69 B1 D2 C5 65 55 55 55 57 45 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 5A 35
+D (764368) GNARL: rfspy_command 5, queue length 0
+RX: received 11 bytes: A9 66 59 99 69 B1 56 65 55 CA 55
+send_bytes (13): 04 24 A9 66 59 99 69 B1 56 65 55 CA 55
+D (764558) GNARL: GAP event 13
+D (764558) GNARL: notify for response count 58
+D (764568) GNARL: display_loop: op 2 arg -71
+D (764568) GNARL: pump RSSI = -71
+D (764568) GNARL: display_loop: op 1 arg -72
+D (764578) GNARL: phone RSSI = -72
+D (764578) GNARL: display_loop: op 3 arg 764
+D (764588) GNARL: command time = 764
+data_access: sending 14 bytes: DD 04 24 A9 66 59 99 69 B1 56 65 55 CA 55
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (780328) GNARL: CmdSendAndListen
+D (780328) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (780338) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (784518) GNARL: timer tick 13
+D (784518) GNARL: not notifying for timer tick
+D (784518) GNARL: rfspy_command 5, queue length 0
+D (809508) GNARL: RX: timeout
+D (809508) GNARL: send_code AA
+D (809508) GNARL: GAP event 13
+D (809508) GNARL: notify for response count 59
+D (809508) GNARL: display_loop: op 2 arg -71
+D (809508) GNARL: pump RSSI = -71
+D (809518) GNARL: display_loop: op 1 arg -78
+D (809518) GNARL: phone RSSI = -78
+D (809518) GNARL: display_loop: op 3 arg 809
+D (809528) GNARL: command time = 809
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (811188) GNARL: CmdSendAndListen
+D (811188) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (811198) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (815378) GNARL: rfspy_command 5, queue length 0
+D (840368) GNARL: RX: timeout
+D (840368) GNARL: send_code AA
+D (840368) GNARL: GAP event 13
+D (840368) GNARL: notify for response count 60
+D (840368) GNARL: display_loop: op 2 arg -71
+D (840368) GNARL: pump RSSI = -71
+D (840378) GNARL: display_loop: op 1 arg -78
+D (840378) GNARL: phone RSSI = -78
+D (840378) GNARL: display_loop: op 3 arg 840
+D (840388) GNARL: command time = 840
+data_access: sending 1 bytes: AA
+D (841448) GNARL: timer tick 14
+D (841448) GNARL: not notifying for timer tick
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (842148) GNARL: CmdSendAndListen
+D (842148) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (842148) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (846328) GNARL: rfspy_command 5, queue length 0
+D (871328) GNARL: RX: timeout
+D (871328) GNARL: send_code AA
+D (871328) GNARL: GAP event 13
+D (871328) GNARL: notify for response count 61
+D (871328) GNARL: display_loop: op 2 arg -71
+D (871328) GNARL: pump RSSI = -71
+D (871338) GNARL: display_loop: op 1 arg -77
+D (871338) GNARL: phone RSSI = -77
+D (871338) GNARL: display_loop: op 3 arg 870
+D (871348) GNARL: command time = 870
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (873048) GNARL: CmdSendAndListen
+D (873048) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (873058) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (877238) GNARL: rfspy_command 5, queue length 0
+D (901448) GNARL: timer tick 15
+D (901448) GNARL: not notifying for timer tick
+D (902228) GNARL: RX: timeout
+D (902228) GNARL: send_code AA
+D (902228) GNARL: GAP event 13
+D (902228) GNARL: notify for response count 62
+D (902228) GNARL: display_loop: op 2 arg -71
+D (902228) GNARL: pump RSSI = -71
+D (902238) GNARL: display_loop: op 1 arg -76
+D (902238) GNARL: phone RSSI = -76
+D (902238) GNARL: display_loop: op 3 arg 901
+D (902248) GNARL: command time = 901
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (904158) GNARL: CmdSendAndListen
+D (904158) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (904158) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (908338) GNARL: rfspy_command 5, queue length 0
+D (933328) GNARL: RX: timeout
+D (933328) GNARL: send_code AA
+D (933328) GNARL: GAP event 13
+D (933328) GNARL: notify for response count 63
+D (933328) GNARL: display_loop: op 2 arg -71
+D (933328) GNARL: pump RSSI = -71
+D (933338) GNARL: display_loop: op 1 arg -77
+D (933338) GNARL: phone RSSI = -77
+D (933338) GNARL: display_loop: op 3 arg 932
+D (933348) GNARL: command time = 932
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (960358) GNARL: CmdSendAndListen
+D (960358) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (960368) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (964548) GNARL: timer tick 16
+D (964548) GNARL: not notifying for timer tick
+D (964548) GNARL: rfspy_command 5, queue length 0
+D (989538) GNARL: RX: timeout
+D (989538) GNARL: send_code AA
+D (989538) GNARL: GAP event 13
+D (989538) GNARL: notify for response count 64
+D (989538) GNARL: display_loop: op 2 arg -71
+D (989538) GNARL: pump RSSI = -71
+D (989548) GNARL: display_loop: op 1 arg -79
+D (989548) GNARL: phone RSSI = -79
+D (989548) GNARL: display_loop: op 3 arg 989
+D (989558) GNARL: command time = 989
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (991218) GNARL: CmdSendAndListen
+D (991218) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (991228) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (995398) GNARL: rfspy_command 5, queue length 0
+D (1020398) GNARL: RX: timeout
+D (1020398) GNARL: send_code AA
+D (1020398) GNARL: GAP event 13
+D (1020398) GNARL: notify for response count 65
+D (1020398) GNARL: display_loop: op 2 arg -71
+D (1020398) GNARL: pump RSSI = -71
+D (1020408) GNARL: display_loop: op 1 arg -79
+D (1020408) GNARL: phone RSSI = -79
+D (1020408) GNARL: display_loop: op 3 arg 1020
+D (1020418) GNARL: command time = 1020
+data_access: sending 1 bytes: AA
+D (1021448) GNARL: timer tick 17
+D (1021448) GNARL: not notifying for timer tick
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (1022128) GNARL: CmdSendAndListen
+D (1022128) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (1022128) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (1026308) GNARL: rfspy_command 5, queue length 0
+D (1051298) GNARL: RX: timeout
+D (1051298) GNARL: send_code AA
+D (1051298) GNARL: GAP event 13
+D (1051298) GNARL: notify for response count 66
+D (1051298) GNARL: display_loop: op 2 arg -71
+D (1051298) GNARL: pump RSSI = -71
+D (1051308) GNARL: display_loop: op 1 arg -76
+D (1051308) GNARL: phone RSSI = -76
+D (1051308) GNARL: display_loop: op 3 arg 1050
+D (1051318) GNARL: command time = 1050
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (1053128) GNARL: CmdSendAndListen
+D (1053128) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (1053138) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (1057308) GNARL: rfspy_command 5, queue length 0
+D (1081448) GNARL: timer tick 18
+D (1081448) GNARL: not notifying for timer tick
+D (1082308) GNARL: RX: timeout
+D (1082308) GNARL: send_code AA
+D (1082308) GNARL: GAP event 13
+D (1082308) GNARL: notify for response count 67
+D (1082308) GNARL: display_loop: op 2 arg -71
+D (1082308) GNARL: pump RSSI = -71
+D (1082318) GNARL: display_loop: op 1 arg -72
+D (1082318) GNARL: phone RSSI = -72
+D (1082318) GNARL: display_loop: op 3 arg 1081
+D (1082328) GNARL: command time = 1081
+data_access: sending 1 bytes: AA
+data_access: received 26 bytes: 19 05 00 C8 00 00 00 00 00 61 A8 00 00 00 A9 66 59 99 69 B1 68 D5 55 69 55 00
+I (1084088) GNARL: CmdSendAndListen
+D (1084088) GNARL: send_and_listen: len 24 send_channel 0 repeat_count 200 delay_ms 0
+D (1084088) GNARL: send_and_listen: listen_channel 0 timeout_ms 25000 retry_count 0
+TX: sending 11 bytes: A9 66 59 99 69 B1 68 D5 55 69 55
+D (1088268) GNARL: rfspy_command 5, queue length 0
+
+
+
+
+
