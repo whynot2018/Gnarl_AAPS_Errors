@@ -4,7 +4,7 @@ AndroidAPS 2.7-omnipod-0.4-SNAPSHOT<br>
 Build: EROS_0.2-342-g51fea....
 
 
-
+[code]
 $ sudo apt-get remove docker docker-engine docker.io containerd runc
 $ sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -27,4 +27,4 @@ $ sudo docker run -it --rm -v $PWD:/project -w /project --device /dev/ttyUSB0 es
 # idf.py build
 # idf.py flash
 # idf.py monitor
-
+[/code]
