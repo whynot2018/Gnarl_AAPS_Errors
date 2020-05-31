@@ -3,7 +3,7 @@ Pump Medtronic 754 ver 2.6A 1.1<br>
 AndroidAPS 2.7-omnipod-0.4-SNAPSHOT<br>
 Build: EROS_0.2-342-g51fea....
 
-
+Ubuntu 19
 ```
 $ sudo apt-get remove docker docker-engine docker.io containerd runc
 $ sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
@@ -28,3 +28,8 @@ $ sudo docker run -it --rm -v $PWD:/project -w /project --device /dev/ttyUSB0 es
 # idf.py flash
 # idf.py monitor
 ```
+Ubuntu 20
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
